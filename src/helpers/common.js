@@ -1,5 +1,8 @@
 import { interpolate, interpolateTransformSvg } from 'd3-interpolate';
-import { getLocalStorageItem, setLocalStorageItem } from './localStorage';
+import {
+  isTabletDevice,
+  isMobileDevice
+} from 'responsive-react/dist/utilResponsive';
 
 export function bool(v) {
   return v === 'false' || v === 'null' || v === 'NaN' || v === 'undefined' || v === '0'
@@ -21,4 +24,24 @@ export function randomInteger(min, max) {
 
   const rand = min + Math.random() * (max + 1 - min);
   return Math.floor(rand);
+}
+
+export function getGridProps(dataLength) {
+  // columnCount
+  // rowCount
+  // rowHeight
+  let columnCount;
+  if (isMobileDevice()) {
+    columnCount = 1;
+  } else if (isTabletDevice()) {
+    columnCount = 2;
+  } else {
+    columnCount = 3;
+  }
+
+  return {
+    columnCount,
+    rowCount: dataLength / columnCount,
+    rowHeight: 100
+  };
 }

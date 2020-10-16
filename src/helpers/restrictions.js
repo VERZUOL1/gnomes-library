@@ -41,5 +41,5 @@ export function restrictTouch() {
   );
 }
 
-setClick();
-restrictTouch();
+// setClick();
+// restrictTouch();

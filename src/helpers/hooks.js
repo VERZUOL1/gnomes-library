@@ -1,8 +1,22 @@
 import React, { useEffect, useLayoutEffect, useState, useRef, useCallback } from 'react';
+import { useDispatch } from 'react-redux';
+import ResizeObserver from 'resize-observer-polyfill';
+
+import { getData } from '../actions/data';
 
 // Helpers
 import { getLocalStorageItem, setLocalStorageItem } from './localStorage';
-import { randomInteger } from './common';
+import { getGridProps, randomInteger } from './common';
+
+// Data loader
+export function useDataLoader() {
+  const dispatch = useDispatch();
+  // const filter = useSelector(getFilterFromStore);
+
+  useEffect(() => {
+    dispatch(getData());
+  }, [dispatch]);
+}
 
 export function useScrollTop(dep, selector = '.scrollable-content__wrapper', smoothBehavior) {
   useLayoutEffect(() => {
@@ -344,4 +358,26 @@ export function useForceUpdate(dep) {
   }, [dep, update]);
 
   return update;
+}
+
+export function useResizableGrid(dataLength) {
+  const [gridProps, setGridProps] = useState({
+    columnCount: 0,
+    rowCount: 0,
+    rowHeight: 100
+  });
+
+  React.useLayoutEffect(() => {
+    const ro = new ResizeObserver(() => {
+      setGridProps(getGridProps(dataLength));
+    });
+
+    ro.observe(document.body);
+
+    return () => {
+      ro.disconnect();
+    };
+  }, [dataLength]);
+
+  return gridProps;
 }
