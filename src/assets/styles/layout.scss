@@ -1,0 +1,56 @@
+@import '../../assets/styles/colors';
+
+.gl-page {
+  width: 100vw;
+  height: 90vh;
+
+  &.locations {
+    background-color: $white;
+  }
+}
+
+.disabled {
+  opacity: 0.3 !important;
+  pointer-events: none !important;
+  cursor: default !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.invisible {
+  visibility: hidden;
+  pointer-events: none;
+  cursor: default;
+}
+
+.centralize {
+  @include centralize;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.scrollable-content__wrapper {
+  position: relative;
+}
+
+.blur-19 {
+  filter: blur(19px);
+}
+
+.align-right {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.margin-left-1 {
+  margin-left: 1rem;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}

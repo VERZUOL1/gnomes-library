@@ -1,0 +1,12 @@
+@import '../../assets/styles/colors';
+@import '../../assets/styles/mixins';
+
+.error-boundary-message {
+  @include centralize;
+  width: calc(100% - 20px);
+  height: calc(92% - 20px);
+  min-height: 45px;
+  margin: 10px;
+  border: 1px solid $orange;
+  color: $dark-grey;
+}

@@ -1,0 +1,87 @@
+@import '../../assets/styles/colors';
+
+.gl-checkbox {
+  display: flex;
+  align-items: center;
+  input[type=checkbox]:not(.old) {
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+  }
+
+  input[type=checkbox]:not(.old) + label {
+    user-select: none;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    .label {
+      font-size: 14px;
+      padding-left: 0;
+      white-space: nowrap;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  /* focused square. Headen by default */
+  input[type=checkbox]:not(.old) + label > span:not(.label) {
+    margin-right: 3px;
+    //border: 2px solid transparent;
+    width: 20px;
+    height: 18px;
+    font-size: 14px;
+    border-radius: 6px;
+
+    display: flex;
+    align-items: center;
+  }
+
+  /* checkbox square. */
+  input[type=checkbox]:not(.old) + label > span > span {
+    display: inline-block;
+    border: 2px solid $grey;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+  }
+
+  /* Show focused square */
+  input[type=checkbox]:not(.old):focus + label > span:not(.label) {
+    border-color: $blue;
+  }
+
+  .checked-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: $white;
+    > span {
+      background-color: transparent;
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+    }
+  }
+  /* checked state */
+  &.gl-checkbox-checked .checked-icon {
+    > span {
+      background-color: $mint;
+    }
+  }
+
+  /* disable state */
+  &.gl-checkbox-disabled {
+    opacity: 0.3;
+    input[type=checkbox]:not(.old) + label {
+      cursor: default;
+    }
+  }
+}

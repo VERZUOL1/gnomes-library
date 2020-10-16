@@ -1,0 +1,27 @@
+@import '../../assets/styles/mixins';
+@import '../../assets/styles/colors';
+
+.gl-icon {
+  @include centralize;
+}
+
+.chat-icon__wrapper {
+  @include centralize;
+  //transform: scale(2);
+  width: 70px;
+  height: 70px;
+  position: relative;
+  margin-right: 16px;
+
+  path {
+    //stroke-width: 1px;
+    //stroke: $black;
+  }
+
+  .chat-icon {
+    transform: scale(2.5);
+    width: 24px;
+    height: 24px;
+    position: relative;
+  }
+}

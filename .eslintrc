@@ -1,0 +1,61 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "globals": {
+    "document": false,
+    "localStorage": false,
+    "window": false,
+    "fetch": false,
+    "Image": false,
+    "FormData": false,
+    "navigator": false,
+    "IntersectionObserver": false,
+    "requestAnimationFrame": false,
+    "cancelAnimationFrame": false,
+    "FileReader": false
+  },
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "comma-dangle": ["error", "never"],
+    "import/prefer-default-export": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/no-unresolved": 0,
+    "react/jsx-no-bind": [0, { "ignoreDOMComponents": true }],
+    "class-methods-use-this": "off",
+    "no-underscore-dangle": "off",
+    "react/jsx-closing-bracket-location": [2, { "selfClosing": "after-props", "nonEmpty": "after-props" }],
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/mouse-events-have-key-events": "off",
+    "jsx-quotes": ["error", "prefer-single"],
+    "arrow-parens": ["error", "as-needed"],
+    "object-curly-newline": "off",
+    "react/no-danger": "off",
+    "jsx-a11y/no-autofocus": "off",
+    "import/no-cycle": "off",
+    "camelcase": "off",
+    "no-restricted-syntax": ["error", "WithStatement", "BinaryExpression[operator='in']"],
+    "react/jsx-one-expression-per-line": "off",
+    "jsx-a11y/label-has-associated-control": [ 2, {
+      "labelComponents": ["CustomLabel"],
+      "labelAttributes": ["inputLabel"],
+      "controlComponents": ["CustomInput"],
+      "assert": "both",
+      "depth": 3
+    }],
+    "jsx-a11y/label-has-for": "off",
+    "react/jsx-curly-brace-presence": "off",
+    "react/state-in-constructor": 0,
+    "react/jsx-props-no-spreading": 0,
+    "template-curly-spacing": "off",
+    "indent": [
+      "warn",
+      2,
+      {
+        "ignoredNodes": ["TemplateLiteral"],
+        "SwitchCase": 1
+      }
+    ]
+  }
+}

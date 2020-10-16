@@ -1,0 +1,134 @@
+@import '../../assets/styles/colors';
+@import '../../assets/styles/mixins';
+
+.gl-loader__container {
+  @include centralize;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  background-color: $white;
+  opacity: 0.68;
+  z-index: 1;
+
+  &.animated {
+    animation-name: zoom;
+    animation-duration: 4s;
+    transform-origin:50% 50%;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  .gl-loader__logo {
+    svg {
+      path {
+        fill: $white;
+      }
+    }
+    &.animated {
+      animation-name: zoom;
+      animation-duration: 4s;
+      transform-origin:50% 50%;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+  }
+
+  .gl-loader__progress {
+    width: 100%;
+    height: 40px;
+    margin-top: 60px;
+    background-color: $light-grey;
+    border: 1px solid $mid-grey;
+    border-radius: 4px;
+    overflow: hidden;
+    .gl-loader__progress-bar {
+      height: 100%;
+      width: 0;
+      background-color: $mint;
+      transition: width 0.4s ease-out;
+    }
+  }
+
+  @keyframes zoom {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes spaceboots {
+    0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
+    10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+    30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+    40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+    50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+    70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+    80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+    90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+    100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
+  }
+  @keyframes heartbeat {
+    0% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) }
+    10% { transform: matrix3d(1, 0, 0, 0, 0.1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) }
+    20% { transform: matrix3d(1, 0, 0, 0, -0.1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) }
+    40% { transform: matrix3d(1, 0, 0, 0, 0.05, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) }
+    50% { transform: matrix3d(1, 0, 0, 0, -0.05, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) }
+    100% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) }
+  }
+
+  .bc-loader__path {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 50%;
+    height: 50%;
+
+    &.path1 {
+      background-image: url('../../assets/images/loader-bg/path1.svg');
+      top: 0;
+      left: 0;
+      width: 388px;
+      height: 513px;
+    }
+    &.path2 {
+      background-image: url('../../assets/images/loader-bg/path2.svg');
+      bottom: 0;
+      left: 0;
+      width: 73px;
+      height: 323px;
+    }
+    &.path3 {
+      background-image: url('../../assets/images/loader-bg/path3.svg');
+      bottom: 0;
+      left: 0;
+      width: 307px;
+      height: 123px;
+    }
+    &.path4 {
+      background-image: url('../../assets/images/loader-bg/path4.svg');
+      bottom: 0;
+      right: 0;
+      width: 761px;
+      height: 281px;
+    }
+    &.path5 {
+      background-image: url('../../assets/images/loader-bg/path5.svg');
+      top: 0;
+      right: 0;
+      width: 357px;
+      height: 381px;
+    }
+    &.path6 {
+      background-image: url('../../assets/images/loader-bg/path6.svg');
+      top: 0;
+      right: 0;
+      width: 537px;
+      height: 186px;
+    }
+  }
+}

@@ -1,0 +1,79 @@
+/* SLIDE transition */
+.slide-enter,
+.slide-exit {
+  transition: transform 500ms ease-out;
+}
+
+.slide-enter {
+  transform: translateY(100%);
+}
+
+.slide-enter.slide-enter-active {
+  transform: translateY(0%);
+}
+
+.slide-exit {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(0%);
+}
+
+.slide-exit-active {
+  transform: translateY(-100%);
+}
+
+/* FADE transition */
+.fade-enter,
+.fade-exit {
+  transition: opacity 500ms ease-out;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+}
+
+.fade-exit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+}
+
+/* SLIDE-FADE transition */
+.slide-fade-enter,
+.slide-fade-exit {
+  transition: all 500ms ease-out;
+}
+
+.slide-fade-enter {
+  transform: translateY(100%);
+}
+
+.slide-fade-enter.slide-fade-enter-active {
+  transform: translateY(0%);
+}
+
+.slide-fade-exit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.slide-fade-exit-active {
+  opacity: 0;
+  transform: translateY(-100%);
+}

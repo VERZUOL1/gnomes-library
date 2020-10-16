@@ -1,0 +1,135 @@
+@import '../../assets/styles/colors';
+@import '../../assets/styles/mixins';
+
+.bc-button {
+  position: relative;
+  @include centralize;
+  @include no-highlight;
+  height: 56px;
+  border-radius: 28px;
+  //background-color: $mint;
+  font-family: Oswald, Arial, sans-serif;
+  //overflow: hidden;
+  white-space: nowrap;
+  //overflow: hidden;
+  text-transform: uppercase;
+
+  user-select: none;
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  color: $white;
+
+  padding: 15px 42px 17px 42px;
+
+  .bc-button_background {
+    transition: filter 0.1s ease-out;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $mint;
+    //z-index: -1;
+    border-radius: 28px;
+    pointer-events: none;
+  }
+
+  .label {
+    z-index: 0;
+    font-size: 16px;
+  }
+
+  .shadow {
+    position: absolute;
+    top: 26px;
+    width: 176px;
+    height: 25px;
+    opacity: 0.56;
+    filter: blur(19px);
+    background-color: $mint;
+    z-index: -1;
+  }
+  //&:after {
+  //  content: '';
+  //  position: absolute;
+  //  top: 36px;
+  //  width: 176px;
+  //  height: 35px;
+  //  opacity: 0.56;
+  //  filter: blur(19px);
+  //  background-color: $mint;
+  //}
+
+  svg {
+    position: absolute;
+    top: -56px;
+    left: -77%;
+    z-index: -1;
+  }
+
+  &.auto {
+    width: 100%;
+  }
+
+  &.xs {
+    width: 80px;
+  }
+
+  &.sm {
+    width: 120px;
+  }
+
+  &.md {
+    width: 160px;
+  }
+
+  &.lg {
+    width: 200px;
+  }
+
+  &.xl {
+    width: 240px;
+  }
+
+  &.secondary {
+    color: $mint;
+    border: 1px solid $mint;
+    .bc-button_background {
+      background-color: $white;
+    }
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: default !important;
+    &:hover {
+      filter: brightness(100%);
+    }
+
+    &:active {
+      filter: brightness(100%);
+    }
+  }
+
+  &:active, &:focus {
+    outline: none;
+  }
+
+  //&:hover {
+  //  filter: brightness(102%);
+  //  box-shadow: 0 0 8px rgba(0, 0, 0, 0.24);
+  //}
+
+  &:active, &:hover {
+    .bc-button_background {
+      filter: brightness(90%);
+    }
+  }
+}

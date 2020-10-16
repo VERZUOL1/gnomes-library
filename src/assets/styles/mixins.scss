@@ -1,0 +1,50 @@
+@import './colors';
+
+/*
+  Customize input placeholder
+  Usage:
+  @include placeholder {
+    color: red;
+  }
+ */
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+}
+
+@mixin centralize {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin ellipse-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin cursor-pointer {
+  cursor: pointer;
+}
+
+@mixin theme($color) {
+  @if ($color == mint) {
+    color: $mint;
+  }
+  @if ($color == purple) {
+    color: purple;
+  }
+}
+
+@mixin no-highlight {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
