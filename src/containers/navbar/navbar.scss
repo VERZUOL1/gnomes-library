@@ -16,4 +16,20 @@
     pointer-events: all;
     opacity: 1;
   }
+
+  .gl-navbar-image {
+    width: 10rem;
+    height: auto;
+    svg {
+      width: 120px;
+      height: 120px;
+      path {
+        fill: $orange;
+      }
+    }
+    //background-image: url('../../assets/images/gear.png');
+    //background-repeat: no-repeat;
+    //background-size: cover;
+    //background-position: center;
+  }
 }

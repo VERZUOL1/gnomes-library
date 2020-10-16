@@ -4,9 +4,13 @@ import { FixedSizeGrid } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { useSelector } from 'react-redux';
 
+// Components
+import CharacterCard from '../../components/character-card';
+
 // Helpers
 import { getDataByCity } from '../../selectors/library';
 import { useResizableGrid } from '../../helpers/hooks';
+import { getCharacterData } from '../../helpers/common';
 
 const Content = () => {
   const data = useSelector(getDataByCity);
@@ -17,15 +21,21 @@ const Content = () => {
       <AutoSizer>
         {({ height, width }) => (
           <FixedSizeGrid
-            {...gridProps}
             columnWidth={width && gridProps.columnCount ? width / gridProps.columnCount : 0}
             height={height}
-            width={width || 0}>
-            {({ columnIndex, rowIndex, style }) => (
-              <div style={{ ...style, padding: 12 }}>
-                row {rowIndex}, column {columnIndex}
-              </div>
-            )}
+            width={width || 0}
+            {...gridProps}>
+            {({ columnIndex, rowIndex, style }) => {
+              const characterData = getCharacterData(
+                data,
+                columnIndex,
+                rowIndex,
+                gridProps.columnCount
+              );
+              return (
+                <CharacterCard data={characterData} style={style} />
+              );
+            }}
           </FixedSizeGrid>
         )}
       </AutoSizer>

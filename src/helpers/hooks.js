@@ -361,11 +361,7 @@ export function useForceUpdate(dep) {
 }
 
 export function useResizableGrid(dataLength) {
-  const [gridProps, setGridProps] = useState({
-    columnCount: 0,
-    rowCount: 0,
-    rowHeight: 100
-  });
+  const [gridProps, setGridProps] = useState(getGridProps(dataLength));
 
   React.useLayoutEffect(() => {
     const ro = new ResizeObserver(() => {

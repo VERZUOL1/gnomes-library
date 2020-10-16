@@ -42,6 +42,13 @@ export function getGridProps(dataLength) {
   return {
     columnCount,
     rowCount: dataLength / columnCount,
-    rowHeight: 100
+    rowHeight: 400
   };
+}
+
+export function getCharacterData(data, columnIndex, rowIndex, columnCount) {
+  const lastItemInRowIndex = columnCount * (rowIndex + 1);
+  const itemIndex = lastItemInRowIndex - columnIndex;
+
+  return data[itemIndex];
 }
