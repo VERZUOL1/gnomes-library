@@ -1,0 +1,11 @@
+@import '../../assets/styles/mixins';
+@import '../../assets/styles/colors';
+
+.gl-title-wrapper {
+  @include centralize;
+  width: 100%;
+  height: 100%;
+
+  font-size: 72px;
+  color: $white;
+}

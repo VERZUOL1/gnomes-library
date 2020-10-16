@@ -1,9 +1,49 @@
+@import '../../assets/styles/colors';
+
 .gl-container {
   width: 100%;
   height: 100vh;
 
-  background-image: url('../../assets/images/city-bg-2.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  .gl-parallax-wrapper, .gl-regular-wrapper {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .gl-regular-wrapper {
+    background-position: center;
+    background-size: cover;
+    background-image: url('../../assets/images/city-bg-2.jpg');
+    z-index: 2;
+    position: relative;
+    padding-top: 72px;
+  }
+
+  .gl-parallax-wrapper {
+    box-sizing: border-box;
+    transform-style: preserve-3d;
+
+    &:before {
+      content: '';
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+
+      background-position: center;
+      background-size: cover;
+      background-image: url('../../assets/images/city-bg-1.jpg');
+      position: absolute;
+      z-index: -1;
+      transform: translateZ(-1px) scale(2);
+    }
+  }
+
+  .gl-content {
+    margin: 0 auto;
+    padding: 50px;
+
+    width: 100%;
+    height: 100%;
+    //background: #00ac67;
+  }
 }
