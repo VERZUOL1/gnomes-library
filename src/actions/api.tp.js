@@ -24,8 +24,8 @@ export function apiNative(url, methodOption, parameters, options) {
       }, `${requestUrl}?`);
     requestUrl = requestUrl.substring(0, requestUrl.length - 1);
     requestParams.headers = {
-      Accept: 'application/json',
-      'Content-Type': 'application/json'
+      Accept: 'application/json'
+      // 'Content-Type': 'application/json'
     };
     // eslint-disable-next-line
   } else if (params instanceof FormData) {
@@ -33,8 +33,8 @@ export function apiNative(url, methodOption, parameters, options) {
   } else {
     requestParams.body = JSON.stringify(params);
     requestParams.headers = {
-      Accept: 'application/json',
-      'Content-Type': 'application/json'
+      Accept: 'application/json'
+      // 'Content-Type': 'application/json'
     };
   }
 
@@ -44,7 +44,7 @@ export function apiNative(url, methodOption, parameters, options) {
   }
 
   requestParams.credentials = 'same-origin';
-  requestParams.mode = 'cors';
+  requestParams.mode = 'no-cors';
   requestParams.cache = 'no-cache';
 
   const requestConfig = {

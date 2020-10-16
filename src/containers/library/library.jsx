@@ -6,7 +6,7 @@ import Content from '../content';
 import Title from '../../components/title';
 
 // Helpers
-import { useIntersect } from '../../helpers/hooks';
+import { useIntersect, useDataLoader } from '../../helpers/hooks';
 
 // Styles
 import './library.scss';
@@ -16,6 +16,8 @@ const Library = () => {
     threshold: '0.1, 0.11, 1',
     rootMargin: '100px 0px 0px 0px'
   });
+
+  useDataLoader();
 
   return (
     <div className='gl-container'>
