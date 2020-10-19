@@ -12,7 +12,7 @@ Here you can filter the list by various parameters.
 
 Of course, I made this application ready for you!
 You can find it up and running on
-...
+https://gnomes-library.vercel.app/
 
 You can also start this application by yourself! 
 In the project directory:
@@ -44,3 +44,11 @@ or
 
 It builds the app for production to the `build` folder.<br />
 Your app is ready to be deployed!
+
+## ToDo
+There are still few improvements I would like to implement.
+For example, I'm using a ResponsiveImage component to display images on cards. The idea of it is display lightweight image
+as a placeholder and allow browser to download full-size image in the background. When it is loaded - just use fullsized.
+Unfortunately, those gnomes do not provide thumbnail and fullsize images separately. They just use one URL.
+If we can force those lazy creatures to give us small thumb - application performance can be improved.
+

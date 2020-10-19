@@ -14,7 +14,7 @@ import { getCharacterData } from '../../helpers/common';
 
 const Content = () => {
   const data = useSelector(getFilteredData);
-  const isLoading = useSelector(state => state.library.loading);
+  const isLoading = useSelector(state => state.library.loading) || false;
   const gridProps = useResizableGrid(data.length);
 
   return (
