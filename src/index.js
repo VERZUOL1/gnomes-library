@@ -7,8 +7,6 @@ import { ConnectedRouter } from 'connected-react-router';
 // Config
 import { store, history } from './store';
 
-import './helpers/restrictions';
-
 // Components
 import Root from './containers/root';
 

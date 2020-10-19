@@ -15,7 +15,8 @@ const CharacterCard = ({
     hair_color,
     friends,
     professions,
-    thumbnail
+    thumbnail,
+    gender
   },
   style
 }) => {
@@ -26,8 +27,12 @@ const CharacterCard = ({
         className={clsx('gl-character-card', { open })}
         onClick={() => setOpen(!open)}>
         <div className='gl-character-card__front'>
-          <ResponsiveImage src={thumbnail} thumbSrc={''} className='gl-character__avatar' visible />
-          <div className='gl-character__name'>{name}</div>
+          <ResponsiveImage
+            src={thumbnail}
+            thumbSrc={thumbnail}
+            className='gl-character__avatar'
+            visible />
+          <div className={clsx('gl-character__name', gender)}>{name}</div>
           <div className='gl-character__info'>
             {professions.map(item => (
               <div key={item}>{item}</div>
@@ -77,7 +82,8 @@ CharacterCard.propTypes = {
     height: PropTypes.number,
     hair_color: PropTypes.string,
     professions: PropTypes.arrayOf(PropTypes.string),
-    friends: PropTypes.arrayOf(PropTypes.string)
+    friends: PropTypes.arrayOf(PropTypes.string),
+    gender: PropTypes.string
   }).isRequired,
   style: PropTypes.shape({}).isRequired
 };
