@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import intersection from 'lodash.intersection';
 import { getSelectedCity } from './city';
 
 const EMPTY_OBJECT = Object.create(null);
@@ -12,3 +13,69 @@ export const getDataByCity = createSelector([
   getDataFromStore,
   getSelectedCity
 ], (data, city) => data[city] || EMPTY_ARRAY);
+
+export const getFilteredData = createSelector([
+  getDataByCity,
+  state => state.filter
+], (data, { professions, hairColor, age, weight, height, withFriends }) => data.filter(item => {
+  let matched = true;
+
+  // Filter by professions
+  if (professions.length) {
+    if (!intersection(professions, item.professions).length) {
+      matched = false;
+    }
+  }
+
+  // Filter by hair color
+  if (hairColor.length) {
+    if (!hairColor.includes(item.hair_color)) {
+      matched = false;
+    }
+  }
+
+  // Filter by age
+  if (age.from !== null) {
+    if (item.age < age.from) {
+      matched = false;
+    }
+  }
+  if (age.to !== null) {
+    if (item.age > age.to) {
+      matched = false;
+    }
+  }
+
+  // Filter by weight
+  if (weight.from !== null) {
+    if (item.weight < weight.from) {
+      matched = false;
+    }
+  }
+  if (weight.to !== null) {
+    if (item.weight > weight.to) {
+      matched = false;
+    }
+  }
+
+  // Filter by height
+  if (height.from !== null) {
+    if (item.height < height.from) {
+      matched = false;
+    }
+  }
+  if (height.to !== null) {
+    if (item.height > height.to) {
+      matched = false;
+    }
+  }
+
+  // Filter by friends
+  if (withFriends) {
+    if (!item.friends.length) {
+      matched = false;
+    }
+  }
+
+  return matched;
+}));

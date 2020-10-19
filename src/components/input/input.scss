@@ -96,7 +96,7 @@
     }
 
     &.focused {
-      border-color: $wave;
+      border-color: $irish-coffee;
       .label {
         font-size: 12px;
         font-weight: 600;
@@ -106,7 +106,7 @@
         letter-spacing: normal;
 
         transform: translateY(-104%);
-        color: $wave;
+        color: $irish-coffee;
       }
       input {
         display: block;

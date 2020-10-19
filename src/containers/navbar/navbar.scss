@@ -11,6 +11,9 @@
   opacity: 0;
   transition: opacity 0.2s ease-out;
   pointer-events: none;
+  box-shadow: 0 1px 20px 14px rgba($black, 0.8);
+
+  display: flex;
 
   &.visible {
     pointer-events: all;
@@ -27,9 +30,41 @@
         fill: $orange;
       }
     }
-    //background-image: url('../../assets/images/gear.png');
-    //background-repeat: no-repeat;
-    //background-size: cover;
-    //background-position: center;
+  }
+
+  .gl-navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 50%;
+
+    .gl-app-title {
+      font-size: 2rem;
+      color: $sapling;
+    }
+
+    @media screen and (max-width: 1920px ) {
+      width: 60%;
+    }
+    @media screen and (max-width: 1440px ) {
+      width: 70%;
+    }
+    @media screen and (max-width: 1200px ) {
+      width: 75%;
+    }
+    @media screen and (max-width: 1024px ) {
+      width: 95%;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .gl-navbar-image {
+      width: 6rem;
+      svg {
+        width: 80px;
+        height: 80px;
+      }
+    }
   }
 }

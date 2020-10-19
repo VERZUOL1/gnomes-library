@@ -21,12 +21,13 @@ const Library = () => {
 
   return (
     <div className='gl-container'>
-      <Navbar visible={observerEntry.isIntersecting && observerEntry.intersectionRatio === 1} />
+      <Navbar visible={observerEntry.isIntersecting && observerEntry.boundingClientRect.top <= 0} />
       <div className='gl-parallax-wrapper'>
         <Title title='Gnomes library' />
       </div>
       <div className='gl-regular-wrapper' ref={entryRef}>
         <Content />
+        <div className='overlay' />
       </div>
     </div>
   );

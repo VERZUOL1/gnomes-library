@@ -7,7 +7,16 @@ import ResponsiveImage from '../responsive-image';
 import './character-card.scss';
 
 const CharacterCard = ({
-  data,
+  data: {
+    name,
+    age,
+    weight,
+    height,
+    hair_color,
+    friends,
+    professions,
+    thumbnail
+  },
   style
 }) => {
   const [open, setOpen] = useState(false);
@@ -15,18 +24,43 @@ const CharacterCard = ({
     <div className='gl-character-card__container' style={style}>
       <div
         className={clsx('gl-character-card', { open })}
-        onClick={() => setOpen(true)}>
+        onClick={() => setOpen(!open)}>
         <div className='gl-character-card__front'>
-          <ResponsiveImage src={data.thumbnail} thumbSrc={''} className='gl-character__avatar' />
-          <div className='gl-character__name'>{data.name}</div>
+          <ResponsiveImage src={thumbnail} thumbSrc={''} className='gl-character__avatar' visible />
+          <div className='gl-character__name'>{name}</div>
           <div className='gl-character__info'>
-            {data.professions.map(item => (
+            {professions.map(item => (
               <div key={item}>{item}</div>
             ))}
           </div>
         </div>
         <div className='gl-character-card__back'>
-          hello
+          <div className='gl-inline-block'>
+            <span className='gl-label'>Age</span>
+            <span className='gl-value'>{age}</span>
+          </div>
+          <div className='gl-inline-block'>
+            <span className='gl-label'>Weight</span>
+            <span className='gl-value'>{weight?.toFixed(2)}</span>
+          </div>
+          <div className='gl-inline-block'>
+            <span className='gl-label'>Height</span>
+            <span className='gl-value'>{height?.toFixed(2)}</span>
+          </div>
+          <div className='gl-inline-block'>
+            <span className='gl-label'>Hair color</span>
+            <span className='gl-value'>{hair_color}</span>
+          </div>
+          <div className='gl-inline-block align-start'>
+            <span className='gl-label'>Friends</span>
+            <ul>
+              {friends.length
+                ? friends.map(item => (
+                  <li key={item}>{item}</li>
+                ))
+                : 'None'}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -48,4 +82,4 @@ CharacterCard.propTypes = {
   style: PropTypes.shape({}).isRequired
 };
 
-export default CharacterCard;
+export default React.memo(CharacterCard);

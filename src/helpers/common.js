@@ -42,7 +42,7 @@ export function getGridProps(dataLength) {
   return {
     columnCount,
     rowCount: dataLength / columnCount,
-    rowHeight: 400
+    rowHeight: 450
   };
 }
 

@@ -1,32 +1,66 @@
-import React from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Responsive } from 'responsive-react';
-import { isLaptopDevice, isTabletDevice, isBiggerThanLaptop } from 'responsive-react/dist/utilResponsive';
+import clsx from 'clsx';
+import { Animate } from 'react-move';
+import { easeQuadOut } from 'd3-ease';
 
 // Components
-import DropdownPanelOriginal from './dropdown-panel-original';
-import DropdownPanelMobile from './dropdown-panel-mobile';
+import { Icons } from '../icon';
 
-// Styles
+// Helpers
+import { useOnClickOutside } from '../../helpers/hooks';
+import { interpolation } from '../../helpers/common';
+
 import './dropdown-panel.scss';
 
-const DropdownPanel = ({ label, children }) => (
-  <>
-    {(isLaptopDevice() || isBiggerThanLaptop() || isTabletDevice()) && (
-      <DropdownPanelOriginal label={label}>
-        {children}
-      </DropdownPanelOriginal>
-    )}
-    <Responsive displayIn={['Mobile']}>
-      <DropdownPanelMobile label={label} onChangeState={() => {}} minimized>
-        {children}
-      </DropdownPanelMobile>
-    </Responsive>
-  </>
-);
+const DropdownPanel = ({ children }) => {
+  const contentRef = useRef();
+  const [opened, setOpened] = useState(false);
+
+  const handleClose = useCallback(() => {
+    setOpened(false);
+  }, [setOpened]);
+
+  useOnClickOutside(contentRef, handleClose);
+
+  return (
+    <div className='gl-dropdown-panel__container' ref={contentRef}>
+      <div
+        className={clsx('gl-dropdown-panel__toggle-wrapper', { opened })}
+        onClick={() => setOpened(!opened)}>
+        <span className='gl-dropdown-panel__toggle-label'>
+          {Icons.GEARS}
+        </span>
+      </div>
+      <Animate
+        show={opened}
+        start={{ opacity: 0 }}
+        enter={{
+          opacity: [1],
+          timing: { duration: 500, delay: 0, ease: easeQuadOut }
+        }}
+        update={{
+          opacity: [1],
+          timing: { duration: 500, ease: easeQuadOut, delay: 0 }
+        }}
+        leave={[
+          {
+            opacity: [0],
+            timing: { delay: 300, duration: 500, ease: easeQuadOut }
+          }
+        ]}
+        interpolation={interpolation}>
+        {({ opacity }) => (
+          <div className='gl-dropdown-panel__content-wrapper' style={{ opacity }}>
+            {children}
+          </div>
+        )}
+      </Animate>
+    </div>
+  );
+};
 
 DropdownPanel.propTypes = {
-  label: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired
 };
 

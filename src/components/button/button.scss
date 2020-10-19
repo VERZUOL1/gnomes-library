@@ -1,17 +1,13 @@
 @import '../../assets/styles/colors';
 @import '../../assets/styles/mixins';
 
-.bc-button {
+.gl-button {
   position: relative;
   @include centralize;
   @include no-highlight;
   height: 56px;
-  border-radius: 28px;
-  //background-color: $mint;
-  font-family: Oswald, Arial, sans-serif;
-  //overflow: hidden;
+  border-radius: 6px;
   white-space: nowrap;
-  //overflow: hidden;
   text-transform: uppercase;
 
   user-select: none;
@@ -28,16 +24,15 @@
 
   padding: 15px 42px 17px 42px;
 
-  .bc-button_background {
+  .gl-button_background {
     transition: filter 0.1s ease-out;
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: $mint;
-    //z-index: -1;
-    border-radius: 28px;
+    background-color: $irish-coffee;
+    border-radius: 6px;
     pointer-events: none;
   }
 
@@ -45,27 +40,6 @@
     z-index: 0;
     font-size: 16px;
   }
-
-  .shadow {
-    position: absolute;
-    top: 26px;
-    width: 176px;
-    height: 25px;
-    opacity: 0.56;
-    filter: blur(19px);
-    background-color: $mint;
-    z-index: -1;
-  }
-  //&:after {
-  //  content: '';
-  //  position: absolute;
-  //  top: 36px;
-  //  width: 176px;
-  //  height: 35px;
-  //  opacity: 0.56;
-  //  filter: blur(19px);
-  //  background-color: $mint;
-  //}
 
   svg {
     position: absolute;
@@ -98,14 +72,6 @@
     width: 240px;
   }
 
-  &.secondary {
-    color: $mint;
-    border: 1px solid $mint;
-    .bc-button_background {
-      background-color: $white;
-    }
-  }
-
   &.disabled {
     opacity: 0.5;
     cursor: default !important;
@@ -122,13 +88,8 @@
     outline: none;
   }
 
-  //&:hover {
-  //  filter: brightness(102%);
-  //  box-shadow: 0 0 8px rgba(0, 0, 0, 0.24);
-  //}
-
   &:active, &:hover {
-    .bc-button_background {
+    .gl-button_background {
       filter: brightness(90%);
     }
   }

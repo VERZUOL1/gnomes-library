@@ -1,19 +1,20 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import { FixedSizeGrid } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { useSelector } from 'react-redux';
 
 // Components
 import CharacterCard from '../../components/character-card';
+import Loader from '../../components/loader';
 
 // Helpers
-import { getDataByCity } from '../../selectors/library';
+import { getFilteredData } from '../../selectors/library';
 import { useResizableGrid } from '../../helpers/hooks';
 import { getCharacterData } from '../../helpers/common';
 
 const Content = () => {
-  const data = useSelector(getDataByCity);
+  const data = useSelector(getFilteredData);
+  const isLoading = useSelector(state => state.library.loading);
   const gridProps = useResizableGrid(data.length);
 
   return (
@@ -32,6 +33,8 @@ const Content = () => {
                 rowIndex,
                 gridProps.columnCount
               );
+              if (!characterData) return null;
+
               return (
                 <CharacterCard data={characterData} style={style} />
               );
@@ -39,12 +42,9 @@ const Content = () => {
           </FixedSizeGrid>
         )}
       </AutoSizer>
+      <Loader show={isLoading} />
     </div>
   );
 };
-
-// Content.propTypes = {
-//
-// };
 
 export default Content;

@@ -5,15 +5,12 @@ import { easeQuadOut } from 'd3-ease';
 import clsx from 'clsx';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
-import { Icons } from '../icon';
-
 import { interpolation } from '../../helpers/common';
 
 import './loader.scss';
 
 const Loader = ({ show, startOpacity, showProgress }) => (
   <div style={{
-    // display: show ? 'block' : 'none',
     width: '100%',
     height: '100%',
     overflow: 'hidden',
@@ -49,7 +46,7 @@ const Loader = ({ show, startOpacity, showProgress }) => (
             e.stopPropagation();
           }}
           style={{ opacity }}>
-          <div className={clsx('gl-loader__logo')}>Gnomes</div>
+          <div className={clsx('gl-loader__logo animated')}>Loading...</div>
           {!!showProgress && (
             <div style={{ width: '100%' }}>
               <Grid>

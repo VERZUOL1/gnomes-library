@@ -1,22 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
+import { useSelector } from 'react-redux';
 
-import { Icons } from '../../components/icon';
+// Components
+import DropdownPanel from '../../components/dropdown-panel';
+import Filters from '../filters';
 
+// Selectors
+import { getSelectedCity } from '../../selectors/city';
+
+// Styles
 import './navbar.scss';
 
-const Navbar = ({ visible }) => (
-  <div
-    className={clsx('gl-navbar', { visible })}>
-    <div className='gl-navbar-image'>
-      {Icons.GEARS}
+const Navbar = ({ visible }) => {
+  const cityName = useSelector(getSelectedCity);
+
+  return (
+    <div
+      className={clsx('gl-navbar', { visible })}>
+      <div className='gl-navbar-content'>
+        <div className='gl-app-title'>{cityName}</div>
+        <div>
+          <DropdownPanel label='Filters'>
+            <Filters />
+          </DropdownPanel>
+        </div>
+      </div>
     </div>
-    <span>
-      Navbar here
-    </span>
-  </div>
-);
+  );
+};
 
 Navbar.defaultProps = {
   visible: true

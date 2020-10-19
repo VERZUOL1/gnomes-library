@@ -1,4 +1,3 @@
-import fetchMock from 'fetch-mock';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { api } from './api.tp';
@@ -9,11 +8,7 @@ const mockStore = configureMockStore(middlewares);
 
 jest.mock('axios');
 
-describe('fetchApi test', () => {
-  afterEach(() => {
-    fetchMock.restore();
-  });
-
+describe('api test', () => {
   it('should return actions', () => {
     axios.request.mockImplementationOnce(() => Promise.resolve({
       data: {}

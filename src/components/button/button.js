@@ -10,10 +10,8 @@ const Button = ({
   label,
   classNames,
   disabled,
-  theme,
   onClick,
   children,
-  type,
   size
 }) => {
   const buttonRef = React.useRef();
@@ -38,7 +36,7 @@ const Button = ({
 
   return (
     <div
-      className={clsx('gl-button', theme, type, classNames, size, {
+      className={clsx('gl-button', 'primary', classNames, size, {
         disabled
       })}
       ref={buttonRef}
@@ -54,8 +52,6 @@ const Button = ({
 Button.defaultProps = {
   disabled: false,
   classNames: '',
-  theme: 'default',
-  type: 'primary',
   children: null,
   label: '',
   size: 'auto'
@@ -65,12 +61,8 @@ Button.propTypes = {
   label: PropTypes.string,
   onClick: PropTypes.func.isRequired,
   classNames: PropTypes.string,
-  theme: PropTypes.string,
   disabled: PropTypes.bool,
   children: PropTypes.node,
-  type: PropTypes.oneOf([
-    'primary', 'secondary'
-  ]),
   size: PropTypes.oneOf([
     'xs', 'sm', 'md', 'lg', 'xl', 'auto'
   ])
