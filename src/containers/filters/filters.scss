@@ -1,0 +1,49 @@
+.gl-filters__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 160px;
+  grid-gap: 1rem;
+
+  grid-template-areas:
+          'grid-title grid-button grid-button'
+          'grid-dropdown-prof grid-dropdown-prof grid-dropdown-color'
+          'grid-dropdown-age grid-dropdown-weight grid-dropdown-height'
+          'grid-checkbox grid-checkbox grid-checkbox';
+
+  .grid-title {
+    grid-area: grid-title;
+  }
+  .grid-button {
+    grid-area: grid-button;
+  }
+  .grid-dropdown-prof {
+    grid-area: grid-dropdown-prof;
+  }
+  .grid-dropdown-color {
+    grid-area: grid-dropdown-color;
+  }
+  .grid-dropdown-age {
+    grid-area: grid-dropdown-age;
+  }
+  .grid-dropdown-weight {
+    grid-area: grid-dropdown-weight;
+  }
+  .grid-dropdown-height {
+    grid-area: grid-dropdown-height;
+  }
+  .grid-checkbox {
+    grid-area: grid-checkbox;
+  }
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+
+    grid-template-areas:
+          'grid-title grid-title'
+          'grid-button grid-button'
+          'grid-dropdown-prof grid-dropdown-prof'
+          'grid-dropdown-color grid-dropdown-color'
+          'grid-dropdown-age grid-dropdown-age'
+          'grid-dropdown-weight grid-dropdown-height'
+          'grid-checkbox grid-checkbox';
+  }
+}

@@ -1,9 +1,0 @@
-@import '../../assets/styles/colors';
-@import '../../assets/styles/mixins';
-
-.not-found__container {
-  height: calc(100vh - 100px);
-  @include centralize;
-
-  flex-direction: column;
-}

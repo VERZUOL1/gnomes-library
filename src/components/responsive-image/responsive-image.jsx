@@ -38,4 +38,4 @@ ResponsiveImage.propTypes = {
   className: PropTypes.string.isRequired
 };
 
-export default ResponsiveImage;
+export default React.memo(ResponsiveImage);

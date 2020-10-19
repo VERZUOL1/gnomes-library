@@ -54,7 +54,7 @@
 
   /* Show focused square */
   input[type=checkbox]:not(.old):focus + label > span:not(.label) {
-    border-color: $blue;
+    border-color: $irish-coffee;
   }
 
   .checked-icon {
@@ -73,7 +73,7 @@
   /* checked state */
   &.gl-checkbox-checked .checked-icon {
     > span {
-      background-color: $mint;
+      background-color: $irish-coffee;
     }
   }
 

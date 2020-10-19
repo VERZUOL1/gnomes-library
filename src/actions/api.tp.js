@@ -25,16 +25,11 @@ export function apiNative(url, methodOption, parameters, options) {
     requestUrl = requestUrl.substring(0, requestUrl.length - 1);
     requestParams.headers = {
       Accept: 'application/json'
-      // 'Content-Type': 'application/json'
     };
-    // eslint-disable-next-line
-  } else if (params instanceof FormData) {
-    requestParams = { method, body: params };
   } else {
     requestParams.body = JSON.stringify(params);
     requestParams.headers = {
       Accept: 'application/json'
-      // 'Content-Type': 'application/json'
     };
   }
 
@@ -70,7 +65,6 @@ export function api(url, action, method, params, options) {
 
   return dispatch => {
     dispatch({ ...reactAction, type: `REQUEST_${reactAction.type}` });
-    // Get token from localStorage
     return apiNative(url, method, params, options)
       .then(
         ({ data }) => {

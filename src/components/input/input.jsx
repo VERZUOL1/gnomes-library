@@ -56,6 +56,13 @@ const Input = ({
     }
   }, [focused]);
 
+  useEffect(() => {
+    if (!value && inputRef.current.value) {
+      inputRef.current.value = value;
+      setFilled(false);
+    }
+  }, [value]);
+
   const delayedQuery = useRef(
     debounce(q => onChange(q), 100)
   ).current;
@@ -76,7 +83,7 @@ const Input = ({
         <div className='label'>{label}</div>
         <div className='label-placeholder'>Placeholder</div>
         <input
-          type='text'
+          type='number'
           defaultValue={value}
           ref={inputRef}
           onFocus={() => setFocused(true)}
@@ -97,14 +104,15 @@ const Input = ({
 
 Input.defaultProps = {
   error: null,
-  onBlur: undefined
+  onBlur: undefined,
+  value: ''
 };
 
 Input.propTypes = {
   onBlur: PropTypes.func,
   onChange: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   error: PropTypes.string
 };
 

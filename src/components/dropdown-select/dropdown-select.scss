@@ -1,7 +1,7 @@
 @import '../../assets/styles/colors';
 @import '../../assets/styles/mixins';
 
-.bc-dropdown-select {
+.gl-dropdown-select {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -9,10 +9,10 @@
   width: 100%;
   height: 56px;
 
-  .bc__status {
+  .gl__status {
     position: absolute;
     top: 100%;
-    font-family: Source Sans Pro, sans-serif;
+    font-family: Aclonica, sans-serif;
     font-size: 12px;
     font-weight: normal;
     font-stretch: normal;
@@ -36,7 +36,7 @@
   }
 }
 
-.bc-dropdown-select__container {
+.gl-dropdown-select__container {
   position: relative;
   flex: 1;
   border-radius: 4px;
@@ -45,10 +45,10 @@
   width: 100%;
 
   &.open {
-    border-color: $wave;
+    border-color: $irish-coffee;
   }
 
-  .bc-dropdown-select__control {
+  .gl-dropdown-select__control {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
@@ -65,17 +65,14 @@
 
     &.open {
       border-radius: 4px 4px 0 0;
-      .bc-dropdown-select__label {
-        color: $wave;
+      .gl-dropdown-select__label {
+        color: $irish-coffee;
       }
     }
 
     > div:first-child {
       width: 100%;
       padding-right: 12px;
-      //display: flex;
-      //align-items: center;
-      //justify-content: flex-start;
       text-align: left;
       transform: translate(4px, 6px);
 
@@ -90,7 +87,7 @@
     }
   }
 
-  .bc-dropdown-select__label {
+  .gl-dropdown-select__label {
     position: absolute;
     top: 50%;
     left: 16px;
@@ -101,7 +98,7 @@
     user-select: none;
   }
 
-  .bc-dropdown-select__options {
+  .gl-dropdown-select__options {
     width: calc(100% + 2px);
     left: -1px;
     min-height: 57px;
@@ -126,10 +123,10 @@
 
     &.open {
       display: block;
-      border-color: $wave;
+      border-color: $irish-coffee;
     }
 
-    .bc-dropdown-select__option {
+    .gl-dropdown-select__option {
       font-size: 16px;
       padding: 15px 12px;
       width: 100%;
@@ -148,7 +145,7 @@
 
       &.selected {
         background-color: $light-grey;
-        color: $mint;
+        color: $irish-coffee;
         user-select: none;
         //cursor: default;
       }
@@ -161,7 +158,7 @@
   }
 
   &.hasSelected {
-    .bc-dropdown-select__label {
+    .gl-dropdown-select__label {
       font-size: 12px;
       font-weight: 600;
       font-stretch: normal;

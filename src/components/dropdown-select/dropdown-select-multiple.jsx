@@ -5,6 +5,8 @@ import { Icons } from '../icon';
 import DropdownSelectItem from './dropdown-select-item';
 import { useEventListener, useOnClickOutside } from '../../helpers/hooks';
 
+import './dropdown-select.scss';
+
 const DropdownSelectMultiple = ({
   label,
   options,
@@ -33,6 +35,13 @@ const DropdownSelectMultiple = ({
 
   useOnClickOutside(optionsRef, handleClose);
   useEventListener('keyup', handleKeyUp);
+
+  React.useEffect(() => {
+    const diff = selectedOption.filter(item => selected.includes(item.value));
+    if (!diff.length && selectedOption.length) {
+      setSelectedOption(diff);
+    }
+  }, [selected, selectedOption]);
 
   return (
     <div className='gl-dropdown-select'>
@@ -109,7 +118,7 @@ DropdownSelectMultiple.propTypes = {
     ])
   })).isRequired,
   onChange: PropTypes.func.isRequired,
-  selected: PropTypes.arrayOf(PropTypes.number),
+  selected: PropTypes.arrayOf(PropTypes.string),
   disabled: PropTypes.bool,
   placeholder: PropTypes.string,
   label: PropTypes.string,
