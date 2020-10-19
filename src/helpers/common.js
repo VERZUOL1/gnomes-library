@@ -52,3 +52,15 @@ export function getCharacterData(data, columnIndex, rowIndex, columnCount) {
 
   return data[itemIndex];
 }
+
+const FEMALE_NAMES_SUFFIX = ['te', 'ia', 'le', 'li'];
+export function getGender(character) {
+  const name = character.name.substring(0, character.name.indexOf(' ')).trim();
+  if (name) {
+    const suffix = name.substring(name.length - 2);
+    if (suffix && FEMALE_NAMES_SUFFIX.includes(suffix)) {
+      return 'female';
+    }
+  }
+  return 'male';
+}

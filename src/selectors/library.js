@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect';
 import intersection from 'lodash.intersection';
 import { getSelectedCity } from './city';
+import { getGender } from '../helpers/common';
 
 const EMPTY_OBJECT = Object.create(null);
 const EMPTY_ARRAY = [];
@@ -12,7 +13,14 @@ export const getIsError = state => state.library.error;
 export const getDataByCity = createSelector([
   getDataFromStore,
   getSelectedCity
-], (data, city) => data[city] || EMPTY_ARRAY);
+], (data, city) => {
+  const cityData = data[city] || EMPTY_ARRAY;
+
+  return cityData.map(character => ({
+    ...character,
+    gender: getGender(character)
+  }));
+});
 
 export const getFilteredData = createSelector([
   getDataByCity,

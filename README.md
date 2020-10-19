@@ -6,6 +6,7 @@ You can use any gnome's engineering machine to access the application: laptop, t
 In the application you can see a gallery of every gnome in the city.
 Each card in gallery shows avatar image, name and professions of gnome.
 You can click on a card and see some details.
+(And it also shows gender - male gnomes have red badge on its name)
 
 On top of the page you can see a gears icon. Press on it and filters panel will be opened.
 Here you can filter the list by various parameters.
