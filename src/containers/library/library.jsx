@@ -13,8 +13,8 @@ import './library.scss';
 
 const Library = () => {
   const [observerEntry, entryRef] = useIntersect({
-    threshold: '0.1, 0.11, 1',
-    rootMargin: '100px 0px 0px 0px'
+    threshold: '0.1, 0.25, 0.50, 0.75, 1',
+    rootMargin: '300px 0px 0px 0px'
   });
 
   useDataLoader();
