@@ -14,7 +14,8 @@ const Input = ({
   onBlur,
   label,
   value,
-  error
+  error,
+  type
 }) => {
   const inputRef = React.useRef();
   const containerRef = React.useRef();
@@ -83,7 +84,7 @@ const Input = ({
         <div className='label'>{label}</div>
         <div className='label-placeholder'>Placeholder</div>
         <input
-          type='number'
+          type={type}
           defaultValue={value}
           ref={inputRef}
           onFocus={() => setFocused(true)}
@@ -105,7 +106,8 @@ const Input = ({
 Input.defaultProps = {
   error: null,
   onBlur: undefined,
-  value: ''
+  value: '',
+  type: 'number'
 };
 
 Input.propTypes = {
@@ -113,7 +115,8 @@ Input.propTypes = {
   onChange: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,
   value: PropTypes.string,
-  error: PropTypes.string
+  error: PropTypes.string,
+  type: PropTypes.string
 };
 
 export default Input;

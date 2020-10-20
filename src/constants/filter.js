@@ -4,5 +4,6 @@ export const FILTER_TYPES = {
   AGE: 'age',
   WEIGHT: 'weight',
   HEIGHT: 'height',
-  WITH_FRIENDS: 'withFriends'
+  WITH_FRIENDS: 'withFriends',
+  SEARCH: 'search'
 };

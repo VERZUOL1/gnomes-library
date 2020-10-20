@@ -12,6 +12,7 @@ import { getSelectedCity } from '../../selectors/city';
 
 // Styles
 import './navbar.scss';
+import Search from '../../components/search';
 
 const Navbar = ({ visible }) => {
   const cityName = useSelector(getSelectedCity);
@@ -21,7 +22,8 @@ const Navbar = ({ visible }) => {
       className={clsx('gl-navbar', { visible })}>
       <div className='gl-navbar-content'>
         <div className='gl-app-title'>{cityName}</div>
-        <div>
+        <div className='gl-nav-filters'>
+          <Search />
           <DropdownPanel label='Filters'>
             <Filters />
           </DropdownPanel>

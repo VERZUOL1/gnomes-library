@@ -15,7 +15,8 @@ export const initialState = {
     to: null
   },
   hairColor: [],
-  withFriends: false
+  withFriends: false,
+  search: ''
 };
 
 export default function filterReducer(state = initialState, action) {
