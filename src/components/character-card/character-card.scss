@@ -43,7 +43,7 @@
     }
 
     .gl-character-card__back {
-      transform: rotateY(180deg);
+      transform: rotateY(180deg) translateZ(12px);
       padding: 1rem;
       color: $black;
     }

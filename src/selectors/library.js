@@ -25,7 +25,8 @@ export const getDataByCity = createSelector([
 export const getFilteredData = createSelector([
   getDataByCity,
   state => state.filter
-], (data, { professions, hairColor, age, weight, height, withFriends }) => data.filter(item => {
+], (data,
+  { professions, hairColor, age, weight, height, withFriends, search }) => data.filter(item => {
   let matched = true;
 
   // Filter by professions
@@ -81,6 +82,13 @@ export const getFilteredData = createSelector([
   // Filter by friends
   if (withFriends) {
     if (!item.friends.length) {
+      matched = false;
+    }
+  }
+
+  // Filter by search
+  if (search) {
+    if (!item.name.toLowerCase().startsWith(search.toLowerCase())) {
       matched = false;
     }
   }

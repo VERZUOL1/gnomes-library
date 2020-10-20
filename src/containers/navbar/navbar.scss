@@ -42,6 +42,18 @@
     .gl-app-title {
       font-size: 2rem;
       color: $sapling;
+      &:first-letter {
+        color: $cape-palisser;
+      }
+    }
+
+    .gl-nav-filters {
+      display: flex;
+      align-items: center;
+
+      > div:first-child {
+        margin-right: 24px;
+      }
     }
 
     @media screen and (max-width: 1920px ) {
@@ -55,6 +67,13 @@
     }
     @media screen and (max-width: 1024px ) {
       width: 95%;
+      .gl-app-title {
+        visibility: hidden;
+        width: 2rem;
+      }
+      .gl-app-title:first-letter {
+        visibility: visible;
+      }
     }
   }
 
